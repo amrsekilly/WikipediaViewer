@@ -7,7 +7,12 @@ $('#searchTerm').bind("enterKey",function(e){
   // perform the request
   var title = encodeURIComponent($('#searchTerm').val());
   var requestURL = url + title + '&prop=revisions&rvprop=content&format=json';
-  console.log(requestURL);
+
+  // get the JSON data
+  $.getJSON(requestURL).done(function(data) {
+    console.log($.parseJSON(data));
+  });
+
   // clear the search bar
   $("#searchTerm").val('');
 });
