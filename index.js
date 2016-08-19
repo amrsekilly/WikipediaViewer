@@ -5,7 +5,7 @@ var url = "https://en.wikipedia.org/w/api.php?action=query&titles=";
 
 $('#searchTerm').bind("enterKey",function(e){
   // perform the request
-  var title = $('#searchTerm').val();
+  var title = encodeURIComponent($('#searchTerm').val());
   var requestURL = url + title + '&prop=revisions&rvprop=content&format=json';
   console.log(requestURL);
   // clear the search bar
